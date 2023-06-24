@@ -18,7 +18,6 @@ class Style(models.Model):
 
 
 class Entry(models.Model):
-    title = models.CharField(max_length=200, default='x')
     beer_name = models.CharField(max_length=200)
     brewery_name = models.CharField(max_length=200)
     beer_pic = models.ImageField(null=True, blank=True, upload_to='images/beer_pics')
@@ -26,8 +25,12 @@ class Entry(models.Model):
     content = models.TextField()
     view_count = models.IntegerField(null=True, blank=True)
     slug = models.SlugField(max_length=200, unique=True, default=False)
+    last_updated = models.DateTimeField(auto_now=True)
 
     beer_style = models.ForeignKey(Style, on_delete = models.CASCADE, null=True, blank=True)
+
+    author = models.ForeignKey(User, on_delete = models.CASCADE, null=True, blank=True)
+
 
     def __str__(self):
         return self.content
