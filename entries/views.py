@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from .models import Entry, Style
 from django.http import HttpResponse, HttpRequest
+from entries.forms import EntryForm
 
 def index(request):
     entries = Entry.objects.all()
-    context = {'entries': entries}
+    form = EntryForm()
+
+    context = {'entries': entries, 'form': form}
 
     return render(request, 'entries/index.html', context)
 

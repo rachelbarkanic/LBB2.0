@@ -13,7 +13,7 @@
                     <span class="material-icons"> keyboard_return </span> Go
                     back
                   </a>
-                  <h1>Blog</h1>
+                  <h1>Little Black Book</h1>
                 </div>
               </div>
             </div>
@@ -21,16 +21,16 @@
             <center>
               <div class="typo">
                 <h1 class="title blog-title">
-                  {{post.title}}
+                  {{entry.title}}
                 </h1>
                 <div class="timeline">
                   <div class="track">
                     <i class="uil uil-clock"></i>
-                    <p class="time">{{post.last_updated | date}}</p>
+                    <p class="time">{{entry.last_updated | date}}</p>
                   </div>
                   <div class="track">
                     <i class="uil uil-users-alt"></i>
-                    <p class="view-count">{{post.view_count}} view{{post.view_count | pluralize}}</p>
+                    <p class="view-count">{{entry.view_count}} view{{post.view_count | pluralize}}</p>
                   </div>
                   <div class="track">
                     <form action="" method="POST">
@@ -50,18 +50,13 @@
                 <!-- blog post -->
                 <div class="blog-post">
                   <div class="post-img blog-img">
-                    <img src="{{post.image.url}}" alt="" />
+                    <img src="{{entry.beer_pic.url}}" alt="" />
                   </div>
                   <div class="blog-post-content">
                     <p>
-                      {{ post.content }}
+                      {{ entry.content }}
                     </p>
                    
-                    <div class="blog-tags">
-                        {% for tag in post.tags.all %}
-                      <div class="tag">{{tag.name}}</div>
-                        {% endfor %}
-                    </div>
                     <div class="social-share">
                       <div class="reactions">
                         <div class="likes">
