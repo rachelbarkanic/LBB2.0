@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="public-reply">
+  <div class="comment-box">
+    <h3>
+      Create a New Entry
+    </h3>
+  <form method="POST">
+    {% csrf_token %}
+    
+    <div class="grid-3">
+  
+      {{form.beer_name}}
+      {{form.brewery_name}}
+      {{form.beer_style}}
+      {{form.beer_pic}}
+      {{form.entry}}
+      {{form.content}}
+  
+      <button class="btn btn-primary rounded">
+        Post Entry
+      </button>
+  
+    </div>
+  </form>
+  </div>
+  </div>
+
+  {% endblock content %}
